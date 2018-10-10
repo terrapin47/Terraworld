@@ -1,0 +1,13 @@
+{
+  "result": {
+    "item": "terraworld:platinum_nugget",
+    "count": 9
+  },
+  "ingredients": [
+    {
+      "type": "forge:ore_dict",
+      "ore": "ingotPlatinum"
+    }
+  ],
+  "type": "forge:ore_shapeless"
+}

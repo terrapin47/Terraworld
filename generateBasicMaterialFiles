@@ -1,0 +1,153 @@
+import json
+import sys
+
+if len(sys.argv) > 1:
+    material = sys.argv[1].lower()
+    material_caps = material.capitalize()
+    print("Generating files for material %s" % material)
+    with open('src/main/resources/assets/terraworld/blockstates/%s_block.json' % material, 'w') as outfile:
+        data = {
+          "forge_marker": 1,
+          "defaults": {
+            "model": "terraworld:%s_block" % material
+          },
+          "variants": {
+            "normal": [{}],
+            "inventory": [{}]
+          }
+        }
+        json.dump(data, outfile, indent=2)  
+
+    with open('src/main/resources/assets/terraworld/blockstates/%s_ore.json' % material, 'w') as outfile:
+        data = {
+          "forge_marker": 1,
+          "defaults": {
+            "model": "terraworld:%s_ore" % material
+          },
+          "variants": {
+            "normal": [{}],
+            "inventory": [{}]
+          }
+        }
+        json.dump(data, outfile, indent=2)
+
+    with open('src/main/resources/assets/terraworld/models/block/%s_block.json' % material, 'w') as outfile:
+        data = {
+          "parent": "block/cube_all",
+          "textures": {
+            "all": "terraworld:blocks/%s_block" % material
+          }
+        }
+        json.dump(data, outfile, indent=2)
+
+    with open('src/main/resources/assets/terraworld/models/block/%s_ore.json' % material, 'w') as outfile:
+        data = {
+          "parent": "block/cube_all",
+          "textures": {
+            "all": "terraworld:blocks/%s_ore" % material
+          }
+        }
+        json.dump(data, outfile, indent=2)
+
+    with open('src/main/resources/assets/terraworld/models/item/%s_dust.json' % material, 'w') as outfile:
+        data = {
+          "parent": "item/generated",
+          "textures": {
+            "layer0": "terraworld:items/%s_dust" % material
+          }
+        }
+        json.dump(data, outfile, indent=2)
+
+    with open('src/main/resources/assets/terraworld/models/item/%s_ingot.json' % material, 'w') as outfile:
+        data = {
+          "parent": "item/generated",
+          "textures": {
+            "layer0": "terraworld:items/%s_ingot" % material
+          }
+        }
+        json.dump(data, outfile, indent=2)
+
+    with open('src/main/resources/assets/terraworld/models/item/%s_nugget.json' % material, 'w') as outfile:
+        data = {
+          "parent": "item/generated",
+          "textures": {
+            "layer0": "terraworld:items/%s_nugget" % material
+          }
+        }
+        json.dump(data, outfile, indent=2)
+
+    with open('src/main/resources/assets/terraworld/recipes/%s_block.json' % material, 'w') as outfile:
+        data = {
+          "result": {
+            "item": "terraworld:%s_block" % material
+          },
+          "pattern": [
+            "iii",
+            "iii",
+            "iii"
+          ],
+          "type": "forge:ore_shaped",
+          "key": {
+            "i": {
+              "type": "forge:ore_dict",
+              "ore": "ingot%s" % material_caps
+            }
+          }
+        }
+        json.dump(data, outfile, indent=2)
+
+    with open('src/main/resources/assets/terraworld/recipes/%s_block_ingot.json' % material, 'w') as outfile:
+        data = {
+          "result": {
+            "item": "terraworld:%s_ingot" % material,
+            "count": 9
+          },
+          "ingredients": [
+            {
+              "type": "forge:ore_dict",
+              "ore": "block%s" % material_caps
+            }
+          ],
+          "type": "forge:ore_shapeless"
+        }
+        json.dump(data, outfile, indent=2)
+
+    with open('src/main/resources/assets/terraworld/recipes/%s_ingot.json' % material, 'w') as outfile:
+        data = {
+          "result": {
+            "item": "terraworld:%s_ingot" % material
+          },
+          "pattern": [
+            "nnn",
+            "nnn",
+            "nnn"
+          ],
+          "type": "forge:ore_shaped",
+          "key": {
+            "n": {
+              "type": "forge:ore_dict",
+              "ore": "nugget%s" % material_caps
+            }
+          }
+        }
+        json.dump(data, outfile, indent=2)
+
+    with open('src/main/resources/assets/terraworld/recipes/%s_nugget.json' % material, 'w') as outfile:
+        data = {
+          "result": {
+            "item": "terraworld:%s_nugget" % material,
+            "count": 9
+          },
+          "ingredients": [
+            {
+              "type": "forge:ore_dict",
+              "ore": "ingot%s" % material_caps
+            }
+          ],
+          "type": "forge:ore_shapeless"
+        }
+        json.dump(data, outfile, indent=2)
+
+
+else:
+    print("Please specify an argument - material string which will be used to build out the files")

@@ -1,0 +1,13 @@
+{
+  "result": {
+    "item": "terraworld:mithril_ingot",
+    "count": 9
+  },
+  "ingredients": [
+    {
+      "type": "forge:ore_dict",
+      "ore": "blockMithril"
+    }
+  ],
+  "type": "forge:ore_shapeless"
+}

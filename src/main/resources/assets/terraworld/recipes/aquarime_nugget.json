@@ -1,0 +1,13 @@
+{
+  "result": {
+    "item": "terraworld:aquarime_nugget",
+    "count": 9
+  },
+  "ingredients": [
+    {
+      "type": "forge:ore_dict",
+      "ore": "ingotAquarime"
+    }
+  ],
+  "type": "forge:ore_shapeless"
+}
