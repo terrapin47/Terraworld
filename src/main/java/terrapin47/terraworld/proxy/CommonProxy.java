@@ -25,48 +25,58 @@ public class CommonProxy {
 
     @SubscribeEvent
     public static void registerBlocks(RegistryEvent.Register<Block> event) {
-        event.getRegistry().register(ModBlocks.ADAMANTINE_ORE);
-        event.getRegistry().register(ModBlocks.ADAMANTINE_BLOCK);
-        event.getRegistry().register(ModBlocks.MITHRIL_ORE);
-        event.getRegistry().register(ModBlocks.MITHRIL_BLOCK);
-        event.getRegistry().register(ModBlocks.PLATINUM_ORE);
-        event.getRegistry().register(ModBlocks.PLATINUM_BLOCK);
-        event.getRegistry().register(ModBlocks.ZINC_ORE);
-        event.getRegistry().register(ModBlocks.ZINC_BLOCK);
-        event.getRegistry().register(ModBlocks.AQUARIME_BLOCK);
-        event.getRegistry().register(ModBlocks.STEEL_BLOCK);
+
+        ModBlocks.ADAMANTINE_ORE.register(event);
+        ModBlocks.ADAMANTINE_BLOCK.register(event);
+        ModBlocks.MITHRIL_ORE.register(event);
+        ModBlocks.MITHRIL_BLOCK.register(event);
+        ModBlocks.PLATINUM_ORE.register(event);
+        ModBlocks.PLATINUM_BLOCK.register(event);
+        ModBlocks.ZINC_ORE.register(event);
+        ModBlocks.ZINC_BLOCK.register(event);
+        ModBlocks.AQUARIME_BLOCK.register(event);
+        ModBlocks.STEEL_BLOCK.register(event);
+        ModBlocks.ORICHALCUM_ORE.register(event);
+        ModBlocks.ORICHALCUM_BLOCK.register(event);
+
     }
 
     @SubscribeEvent
     public static void registerItems(RegistryEvent.Register<Item> event) {
-        event.getRegistry().register(ModItems.ADAMANTINE_INGOT);
-        event.getRegistry().register(ModItems.ADAMANTINE_DUST);
-        event.getRegistry().register(ModItems.ADAMANTINE_NUGGET);
-        event.getRegistry().register(new ItemBlock(ModBlocks.ADAMANTINE_ORE).setRegistryName(ModBlocks.ADAMANTINE_ORE.getRegistryName()));
-        event.getRegistry().register(new ItemBlock(ModBlocks.ADAMANTINE_BLOCK).setRegistryName(ModBlocks.ADAMANTINE_BLOCK.getRegistryName()));
-        event.getRegistry().register(ModItems.MITHRIL_INGOT);
-        event.getRegistry().register(ModItems.MITHRIL_DUST);
-        event.getRegistry().register(ModItems.MITHRIL_NUGGET);
-        event.getRegistry().register(new ItemBlock(ModBlocks.MITHRIL_ORE).setRegistryName(ModBlocks.MITHRIL_ORE.getRegistryName()));
-        event.getRegistry().register(new ItemBlock(ModBlocks.MITHRIL_BLOCK).setRegistryName(ModBlocks.MITHRIL_BLOCK.getRegistryName()));
-        event.getRegistry().register(ModItems.PLATINUM_INGOT);
-        event.getRegistry().register(ModItems.PLATINUM_DUST);
-        event.getRegistry().register(ModItems.PLATINUM_NUGGET);
-        event.getRegistry().register(new ItemBlock(ModBlocks.PLATINUM_ORE).setRegistryName(ModBlocks.PLATINUM_ORE.getRegistryName()));
-        event.getRegistry().register(new ItemBlock(ModBlocks.PLATINUM_BLOCK).setRegistryName(ModBlocks.PLATINUM_BLOCK.getRegistryName()));
-        event.getRegistry().register(ModItems.ZINC_INGOT);
-        event.getRegistry().register(ModItems.ZINC_DUST);
-        event.getRegistry().register(ModItems.ZINC_NUGGET);
-        event.getRegistry().register(new ItemBlock(ModBlocks.ZINC_ORE).setRegistryName(ModBlocks.ZINC_ORE.getRegistryName()));
-        event.getRegistry().register(new ItemBlock(ModBlocks.ZINC_BLOCK).setRegistryName(ModBlocks.ZINC_BLOCK.getRegistryName()));
-        event.getRegistry().register(ModItems.AQUARIME_INGOT);
-        event.getRegistry().register(ModItems.AQUARIME_DUST);
-        event.getRegistry().register(ModItems.AQUARIME_NUGGET);
-        event.getRegistry().register(new ItemBlock(ModBlocks.AQUARIME_BLOCK).setRegistryName(ModBlocks.AQUARIME_BLOCK.getRegistryName()));
-        event.getRegistry().register(ModItems.STEEL_INGOT);
-        event.getRegistry().register(ModItems.STEEL_DUST);
-        event.getRegistry().register(ModItems.STEEL_NUGGET);
-        event.getRegistry().register(new ItemBlock(ModBlocks.STEEL_BLOCK).setRegistryName(ModBlocks.STEEL_BLOCK.getRegistryName()));
+        ModItems.ADAMANTINE_INGOT.register(event);
+        ModItems.ADAMANTINE_DUST.register(event);
+        ModItems.ADAMANTINE_NUGGET.register(event);
+        ModBlocks.ADAMANTINE_ORE.registerAsItem(event);
+        ModBlocks.ADAMANTINE_BLOCK.registerAsItem(event);
+        ModItems.MITHRIL_INGOT.register(event);
+        ModItems.MITHRIL_DUST.register(event);
+        ModItems.MITHRIL_NUGGET.register(event);
+        ModBlocks.MITHRIL_ORE.registerAsItem(event);
+        ModBlocks.MITHRIL_BLOCK.registerAsItem(event);
+        ModItems.PLATINUM_INGOT.register(event);
+        ModItems.PLATINUM_DUST.register(event);
+        ModItems.PLATINUM_NUGGET.register(event);
+        ModBlocks.PLATINUM_ORE.registerAsItem(event);
+        ModBlocks.PLATINUM_BLOCK.registerAsItem(event);
+        ModItems.ZINC_INGOT.register(event);
+        ModItems.ZINC_DUST.register(event);
+        ModItems.ZINC_NUGGET.register(event);
+        ModBlocks.ZINC_ORE.registerAsItem(event);
+        ModBlocks.ZINC_BLOCK.registerAsItem(event);
+        ModItems.AQUARIME_INGOT.register(event);
+        ModItems.AQUARIME_DUST.register(event);
+        ModItems.AQUARIME_NUGGET.register(event);
+        ModBlocks.AQUARIME_BLOCK.registerAsItem(event);
+        ModItems.STEEL_INGOT.register(event);
+        ModItems.STEEL_DUST.register(event);
+        ModItems.STEEL_NUGGET.register(event);
+        ModBlocks.STEEL_BLOCK.registerAsItem(event);
+        ModItems.ORICHALCUM_INGOT.register(event);
+        ModItems.ORICHALCUM_DUST.register(event);
+        ModItems.ORICHALCUM_NUGGET.register(event);
+        ModBlocks.ORICHALCUM_ORE.registerAsItem(event);
+        ModBlocks.ORICHALCUM_BLOCK.registerAsItem(event);
+
     }
 }
 

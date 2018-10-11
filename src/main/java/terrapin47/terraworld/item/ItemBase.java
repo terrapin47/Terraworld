@@ -4,6 +4,7 @@ import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraftforge.client.model.ModelLoader;
+import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraftforge.oredict.OreDictionary;
@@ -11,10 +12,13 @@ import terrapin47.terraworld.Terraworld;
 
 public class ItemBase extends Item {
 
-    public ItemBase(String name) {
+    private String oredict;
+
+    public ItemBase(String name, String oredict) {
         setRegistryName(name);
         setUnlocalizedName(Terraworld.MODID + "." + name);
         setCreativeTab(CreativeTabs.MATERIALS);
+        this.oredict = oredict;
     }
 
     @SideOnly(Side.CLIENT)
@@ -22,8 +26,9 @@ public class ItemBase extends Item {
         ModelLoader.setCustomModelResourceLocation(this, 0, new ModelResourceLocation(getRegistryName(), "inventory"));
     }
 
-    public void initOreDict(String name) {
-        OreDictionary.registerOre(name, this);
+    public void register(RegistryEvent.Register<Item> event) {
+        event.getRegistry().register(this);
+        OreDictionary.registerOre(this.oredict, this);
     }
 
 }

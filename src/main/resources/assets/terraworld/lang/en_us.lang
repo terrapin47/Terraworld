@@ -31,3 +31,9 @@ item.terraworld.steel_ingot.name=Steel Ingot
 item.terraworld.steel_dust.name=Steel Dust
 item.terraworld.steel_nugget.name=Steel Nugget
 tile.terraworld.steel_block.name=Steel Block
+
+item.terraworld.orichalcum_ingot.name=Orichalcum Ingot
+item.terraworld.orichalcum_dust.name=Orichalcum Dust
+item.terraworld.orichalcum_nugget.name=Orichalcum Nugget
+tile.terraworld.orichalcum_block.name=Orichalcum Block
+tile.terraworld.orichalcum_ore.name=Orichalcum Ore

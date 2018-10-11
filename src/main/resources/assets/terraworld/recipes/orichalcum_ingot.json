@@ -1,0 +1,17 @@
+{
+  "result": {
+    "item": "terraworld:orichalcum_ingot"
+  },
+  "pattern": [
+    "nnn",
+    "nnn",
+    "nnn"
+  ],
+  "type": "forge:ore_shaped",
+  "key": {
+    "n": {
+      "type": "forge:ore_dict",
+      "ore": "nuggetOrichalcum"
+    }
+  }
+}

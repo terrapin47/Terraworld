@@ -1,0 +1,13 @@
+{
+  "result": {
+    "item": "terraworld:orichalcum_ingot",
+    "count": 9
+  },
+  "ingredients": [
+    {
+      "type": "forge:ore_dict",
+      "ore": "blockOrichalcum"
+    }
+  ],
+  "type": "forge:ore_shapeless"
+}

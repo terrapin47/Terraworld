@@ -1,14 +1,14 @@
 [
 {
-  "modid": "examplemod",
-  "name": "Example Mod",
-  "description": "Example placeholder mod.",
+  "modid": "terraworld",
+  "name": "Terraworld",
+  "description": "A simple mod that adds blocks.",
   "version": "${version}",
   "mcversion": "${mcversion}",
-  "url": "",
+  "url": "https://github.com/terrapin47/Terraworld",
   "updateUrl": "",
-  "authorList": ["ExampleDude"],
-  "credits": "The Forge and FML guys, for making this example",
+  "authorList": ["terrapin47"],
+  "credits": "",
   "logoFile": "",
   "screenshots": [],
   "dependencies": []

@@ -11,7 +11,7 @@ apply plugin: 'net.minecraftforge.gradle.forge'
 //Only edit below this line, the above code adds and enables the necessary things for Forge to be setup.
 
 
-version = "1.0.0"
+version = "1.0.1"
 group = "terrapin47.terraworld" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = "Terraworld"
 
@@ -33,6 +33,22 @@ minecraft {
     // makeObfSourceJar = false // an Srg named sources jar is made by default. uncomment this to disable.
 }
 
+repositories {
+    jcenter()
+    maven {
+        name 'Maven for JEI'
+        url 'http://dvs1.progwml6.com/files/maven'
+    }
+    maven {
+        name = "CurseForge"
+        url = "https://minecraft.curseforge.com/api/maven/"
+    }
+    maven {
+        name = "MMD"
+        url = "https://maven.mcmoddev.com/"
+    }
+}
+
 dependencies {
     // you may put jars on which you depend on in ./libs
     // or you may define them like so..
@@ -50,6 +66,16 @@ dependencies {
     // except that these dependencies get remapped to your current MCP mappings
     //deobfCompile 'com.mod-buildcraft:buildcraft:6.0.8:dev'
     //deobfProvided 'com.mod-buildcraft:buildcraft:6.0.8:dev'
+
+    // Mantle
+    compile group: "slimeknights.mantle", name: "Mantle", version: "${minecraft_root_version}-${mantle_version}"
+    // Tinkers' Construct
+    compile group: "slimeknights", name: "TConstruct", version: "${minecraft_version}-${tinkers_version}"
+
+    // compile against the JEI API but do not include it at runtime
+    deobfProvided "mezz.jei:jei_${minecraft_version}:${jei_version}:api"
+    // at runtime, use the full JEI jar
+    runtime "mezz.jei:jei_${minecraft_version}:${jei_version}"
 
     // for more info...
     // http://www.gradle.org/docs/current/userguide/artifact_dependencies_tutorial.html

@@ -16,6 +16,8 @@ public class ModRecipes {
         GameRegistry.addSmelting(ModItems.ZINC_DUST, new ItemStack(ModItems.ZINC_INGOT, 1), 0f);
         GameRegistry.addSmelting(ModItems.AQUARIME_DUST, new ItemStack(ModItems.AQUARIME_INGOT, 1), 0f);
         GameRegistry.addSmelting(ModItems.STEEL_DUST, new ItemStack(ModItems.STEEL_INGOT, 1), 0f);
+        GameRegistry.addSmelting(ModBlocks.ORICHALCUM_ORE, new ItemStack(ModItems.ORICHALCUM_INGOT, 1), 1.0f);
+        GameRegistry.addSmelting(ModItems.ORICHALCUM_DUST, new ItemStack(ModItems.ORICHALCUM_INGOT, 1), 0f);
     }
 
 }
