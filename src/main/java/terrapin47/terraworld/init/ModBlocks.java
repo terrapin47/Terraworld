@@ -1,6 +1,9 @@
 package terrapin47.terraworld.init;
 
+import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
+import net.minecraft.item.Item;
+import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -60,4 +63,34 @@ public class ModBlocks {
         ORICHALCUM_ORE.initModel();
     }
 
+    public static void registerBlocks(RegistryEvent.Register<Block> event) {
+        ADAMANTINE_ORE.register(event);
+        ADAMANTINE_BLOCK.register(event);
+        ADAMANTINE_BLOCK.register(event);
+        MITHRIL_ORE.register(event);
+        MITHRIL_BLOCK.register(event);
+        PLATINUM_ORE.register(event);
+        PLATINUM_BLOCK.register(event);
+        ZINC_ORE.register(event);
+        ZINC_BLOCK.register(event);
+        AQUARIME_BLOCK.register(event);
+        STEEL_BLOCK.register(event);
+        ORICHALCUM_ORE.register(event);
+        ORICHALCUM_BLOCK.register(event);
+    }
+
+    public static void registerItems(RegistryEvent.Register<Item> event) {
+        ADAMANTINE_ORE.registerAsItem(event);
+        ADAMANTINE_BLOCK.registerAsItem(event);
+        MITHRIL_ORE.registerAsItem(event);
+        MITHRIL_BLOCK.registerAsItem(event);
+        PLATINUM_ORE.registerAsItem(event);
+        PLATINUM_BLOCK.registerAsItem(event);
+        ZINC_ORE.registerAsItem(event);
+        ZINC_BLOCK.registerAsItem(event);
+        AQUARIME_BLOCK.registerAsItem(event);
+        STEEL_BLOCK.registerAsItem(event);
+        ORICHALCUM_ORE.registerAsItem(event);
+        ORICHALCUM_BLOCK.registerAsItem(event);
+    }
 }

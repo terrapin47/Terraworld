@@ -1,5 +1,7 @@
 package terrapin47.terraworld.init;
 
+import net.minecraft.item.Item;
+import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -93,6 +95,30 @@ public class ModItems {
         ORICHALCUM_INGOT.initModel();
         ORICHALCUM_DUST.initModel();
         ORICHALCUM_NUGGET.initModel();
+    }
+
+    public static void registerItems(RegistryEvent.Register<Item> event) {
+        ADAMANTINE_INGOT.register(event);
+        ADAMANTINE_DUST.register(event);
+        ADAMANTINE_NUGGET.register(event);
+        MITHRIL_INGOT.register(event);
+        MITHRIL_DUST.register(event);
+        MITHRIL_NUGGET.register(event);
+        PLATINUM_INGOT.register(event);
+        PLATINUM_DUST.register(event);
+        PLATINUM_NUGGET.register(event);
+        ZINC_INGOT.register(event);
+        ZINC_DUST.register(event);
+        ZINC_NUGGET.register(event);
+        AQUARIME_INGOT.register(event);
+        AQUARIME_DUST.register(event);
+        AQUARIME_NUGGET.register(event);
+        STEEL_INGOT.register(event);
+        STEEL_DUST.register(event);
+        STEEL_NUGGET.register(event);
+        ORICHALCUM_INGOT.register(event);
+        ORICHALCUM_DUST.register(event);
+        ORICHALCUM_NUGGET.register(event);
     }
 
 }
