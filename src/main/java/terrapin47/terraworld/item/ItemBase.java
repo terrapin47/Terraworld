@@ -12,12 +12,16 @@ import terrapin47.terraworld.Terraworld;
 
 public class ItemBase extends Item {
 
-    private String oredict;
+    private String oredict = null;
 
-    public ItemBase(String name, String oredict) {
+    public ItemBase(String name) {
         setRegistryName(name);
         setUnlocalizedName(Terraworld.MODID + "." + name);
         setCreativeTab(CreativeTabs.MATERIALS);
+    }
+
+    public ItemBase(String name, String oredict) {
+        this(name);
         this.oredict = oredict;
     }
 
@@ -28,7 +32,11 @@ public class ItemBase extends Item {
 
     public void register(RegistryEvent.Register<Item> event) {
         event.getRegistry().register(this);
-        OreDictionary.registerOre(this.oredict, this);
+
+        // Probably bad practice?
+        if (!(this.oredict == null)) {
+            OreDictionary.registerOre(this.oredict, this);
+        }
     }
 
 }
