@@ -14,7 +14,7 @@ public class Terraworld {
 
     public static final String MODID = "terraworld";
     public static final String MODNAME = "Terraworld";
-    public static final String MODVERSION= "1.0.2";
+    public static final String MODVERSION= "1.0.3";
 
     @SidedProxy(clientSide = "terrapin47.terraworld.proxy.ClientProxy", serverSide = "terrapin47.terraworld.proxy.ServerProxy")
     public static CommonProxy proxy;
