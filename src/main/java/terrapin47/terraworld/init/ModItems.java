@@ -18,6 +18,9 @@ public class ModItems {
     @GameRegistry.ObjectHolder("terraworld:adamantine_nugget")
     public static final ItemBase ADAMANTINE_NUGGET = new ItemBase("adamantine_nugget", "nuggetAdamantine");
 
+    @GameRegistry.ObjectHolder("terraworld:aluminum_dust")
+    public static final ItemBase ALUMINUM_DUST = new ItemBase("aluminum_dust", "dustAluminum");
+
     @GameRegistry.ObjectHolder("terraworld:mithril_ingot")
     public static final ItemBase MITHRIL_INGOT = new ItemBase("mithril_ingot", "ingotMithril");
 
@@ -185,6 +188,7 @@ public class ModItems {
         ADAMANTINE_INGOT.initModel();
         ADAMANTINE_DUST.initModel();
         ADAMANTINE_NUGGET.initModel();
+        ALUMINUM_DUST.initModel();
         MITHRIL_INGOT.initModel();
         MITHRIL_DUST.initModel();
         MITHRIL_NUGGET.initModel();
@@ -245,6 +249,7 @@ public class ModItems {
         ADAMANTINE_INGOT.register(event);
         ADAMANTINE_DUST.register(event);
         ADAMANTINE_NUGGET.register(event);
+        ALUMINUM_DUST.register(event);
         MITHRIL_INGOT.register(event);
         MITHRIL_DUST.register(event);
         MITHRIL_NUGGET.register(event);

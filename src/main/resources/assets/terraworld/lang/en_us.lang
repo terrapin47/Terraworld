@@ -4,6 +4,8 @@ item.terraworld.adamantine_nugget.name=Adamantine Nugget
 tile.terraworld.adamantine_block.name=Adamantine Block
 tile.terraworld.adamantine_ore.name=Adamantine Ore
 
+item.terraworld.aluminum_dust.name=Aluminum Dust
+
 item.terraworld.mithril_ingot.name=Mithril Ingot
 item.terraworld.mithril_dust.name=Mithril Dust
 item.terraworld.mithril_nugget.name=Mithril Nugget
