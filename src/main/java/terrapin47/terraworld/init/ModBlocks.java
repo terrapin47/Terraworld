@@ -66,7 +66,6 @@ public class ModBlocks {
     public static void registerBlocks(RegistryEvent.Register<Block> event) {
         ADAMANTINE_ORE.register(event);
         ADAMANTINE_BLOCK.register(event);
-        ADAMANTINE_BLOCK.register(event);
         MITHRIL_ORE.register(event);
         MITHRIL_BLOCK.register(event);
         PLATINUM_ORE.register(event);
