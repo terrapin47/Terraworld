@@ -9,6 +9,18 @@ import terrapin47.terraworld.item.ItemBase;
 
 public class ModItems {
 
+    @GameRegistry.ObjectHolder("terraworld:copper_dust")
+    public static final ItemBase COPPER_DUST = new ItemBase("copper_dust", "dustCopper");
+
+    @GameRegistry.ObjectHolder("terraworld:lead_dust")
+    public static final ItemBase LEAD_DUST = new ItemBase("lead_dust", "dustLead");
+
+    @GameRegistry.ObjectHolder("terraworld:silver_dust")
+    public static final ItemBase SILVER_DUST = new ItemBase("silver_dust", "dustSilver");
+
+    @GameRegistry.ObjectHolder("terraworld:nickel_dust")
+    public static final ItemBase NICKEL_DUST = new ItemBase("nickel_dust", "dustNickel");
+
     @GameRegistry.ObjectHolder("terraworld:adamantine_ingot")
     public static final ItemBase ADAMANTINE_INGOT = new ItemBase("adamantine_ingot", "ingotAdamantine");
 
@@ -185,10 +197,14 @@ public class ModItems {
 
     @SideOnly(Side.CLIENT)
     public static void initModels() {
+        COPPER_DUST.initModel();
+        LEAD_DUST.initModel();
+        SILVER_DUST.initModel();
+        NICKEL_DUST.initModel();
+        ALUMINUM_DUST.initModel();
         ADAMANTINE_INGOT.initModel();
         ADAMANTINE_DUST.initModel();
         ADAMANTINE_NUGGET.initModel();
-        ALUMINUM_DUST.initModel();
         MITHRIL_INGOT.initModel();
         MITHRIL_DUST.initModel();
         MITHRIL_NUGGET.initModel();
@@ -246,10 +262,14 @@ public class ModItems {
     }
 
     public static void registerItems(RegistryEvent.Register<Item> event) {
+        COPPER_DUST.register(event);
+        LEAD_DUST.register(event);
+        SILVER_DUST.register(event);
+        NICKEL_DUST.register(event);
+        ALUMINUM_DUST.register(event);
         ADAMANTINE_INGOT.register(event);
         ADAMANTINE_DUST.register(event);
         ADAMANTINE_NUGGET.register(event);
-        ALUMINUM_DUST.register(event);
         MITHRIL_INGOT.register(event);
         MITHRIL_DUST.register(event);
         MITHRIL_NUGGET.register(event);
