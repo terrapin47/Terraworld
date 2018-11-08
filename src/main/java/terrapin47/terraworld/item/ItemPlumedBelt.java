@@ -13,14 +13,11 @@ import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-import net.minecraftforge.oredict.OreDictionary;
 import net.minecraft.world.World;
 import terrapin47.terraworld.Terraworld;
 import java.util.List;
 
 public class ItemPlumedBelt extends Item implements IBauble {
-
-	private String oredict = null;
 
 	public ItemPlumedBelt() {
 		String name = "plumed_belt";
@@ -50,10 +47,6 @@ public class ItemPlumedBelt extends Item implements IBauble {
 	public void register(RegistryEvent.Register<Item> event) {
 		event.getRegistry().register(this);
 
-		// Probably bad practice?
-		if (!(this.oredict == null)) {
-			OreDictionary.registerOre(this.oredict, this);
-		}
 	}
 
 	@SideOnly(Side.CLIENT)
