@@ -1,5 +1,6 @@
 package terrapin47.terraworld;
 
+import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
@@ -9,7 +10,7 @@ import org.apache.logging.log4j.Logger;
 import terrapin47.terraworld.init.ModRecipes;
 import terrapin47.terraworld.proxy.CommonProxy;
 
-@Mod(modid = Terraworld.MODID, name = Terraworld.MODNAME, version = Terraworld.MODVERSION, useMetadata = true)
+@Mod(modid = Terraworld.MODID, name = Terraworld.MODNAME, version = Terraworld.MODVERSION, useMetadata = true, dependencies = "required-after:baubles;required-after:botania")
 public class Terraworld {
 
     public static final String MODID = "terraworld";
@@ -34,6 +35,12 @@ public class Terraworld {
     public void init(FMLInitializationEvent event) {
         proxy.init(event);
         ModRecipes.init();
+
+        if(!Loader.isModLoaded("baubles"))
+            System.out.println("Required mod Baubles isn't installed");
+
+        if(!Loader.isModLoaded("botania"))
+            System.out.println("Required mod Botania isn't installed");
     }
 
     @Mod.EventHandler
