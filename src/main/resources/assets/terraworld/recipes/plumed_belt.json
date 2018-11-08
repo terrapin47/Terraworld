@@ -1,0 +1,25 @@
+{
+  "result": {
+    "item": "terraworld:plumed_belt"
+  },
+  "pattern": [
+    "ef ",
+    "f f",
+    "mfa"
+  ],
+  "type": "forge:ore_shaped",
+  "key": {
+    "f": {
+      "item": "minecraft:feather"
+    },
+    "e": {
+      "item": "#RUNEEARTHB"
+    },
+    "m": {
+      "item": "#INGOTMANASTEEL"
+    },
+    "a": {
+      "item": "#RUNEAIRB"
+    }
+  }
+}

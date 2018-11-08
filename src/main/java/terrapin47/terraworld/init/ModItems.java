@@ -6,6 +6,7 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import terrapin47.terraworld.item.ItemBase;
+import terrapin47.terraworld.item.ItemPlumedBelt;
 
 public class ModItems {
 
@@ -195,6 +196,9 @@ public class ModItems {
     @GameRegistry.ObjectHolder("terraworld:stamp_wide_guard")
     public static final ItemBase STAMP_WIDE_GUARD = new ItemBase("stamp_wide_guard");
 
+    @GameRegistry.ObjectHolder("terraworld:plumed_belt")
+    public static final ItemPlumedBelt PLUMED_BELT = new ItemPlumedBelt();
+
     @SideOnly(Side.CLIENT)
     public static void initModels() {
         COPPER_DUST.initModel();
@@ -259,6 +263,7 @@ public class ModItems {
         STAMP_TOUGH_BINDING.initModel();
         STAMP_TOUGH_TOOL_ROD.initModel();
         STAMP_WIDE_GUARD.initModel();
+        PLUMED_BELT.initModel();
     }
 
     public static void registerItems(RegistryEvent.Register<Item> event) {
@@ -324,6 +329,7 @@ public class ModItems {
         STAMP_TOUGH_BINDING.register(event);
         STAMP_TOUGH_TOOL_ROD.register(event);
         STAMP_WIDE_GUARD.register(event);
+        PLUMED_BELT.register(event);
     }
 
 }
