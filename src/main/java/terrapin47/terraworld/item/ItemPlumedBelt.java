@@ -8,12 +8,15 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.client.util.ITooltipFlag;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraftforge.oredict.OreDictionary;
+import net.minecraft.world.World;
 import terrapin47.terraworld.Terraworld;
+import java.util.List;
 
 public class ItemPlumedBelt extends Item implements IBauble {
 
@@ -51,6 +54,12 @@ public class ItemPlumedBelt extends Item implements IBauble {
 		if (!(this.oredict == null)) {
 			OreDictionary.registerOre(this.oredict, this);
 		}
+	}
+
+	@SideOnly(Side.CLIENT)
+	@Override
+	public void addInformation(ItemStack stack, World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
+		tooltip.add("Negates fall damage");
 	}
 
 }

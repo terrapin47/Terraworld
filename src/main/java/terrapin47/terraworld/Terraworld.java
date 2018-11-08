@@ -10,7 +10,7 @@ import org.apache.logging.log4j.Logger;
 import terrapin47.terraworld.init.ModRecipes;
 import terrapin47.terraworld.proxy.CommonProxy;
 
-@Mod(modid = Terraworld.MODID, name = Terraworld.MODNAME, version = Terraworld.MODVERSION, useMetadata = true, dependencies = "required-after:baubles")
+@Mod(modid = Terraworld.MODID, name = Terraworld.MODNAME, version = Terraworld.MODVERSION, useMetadata = true, dependencies = "required-after:baubles;required-after:botania")
 public class Terraworld {
 
     public static final String MODID = "terraworld";
