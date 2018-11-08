@@ -3,23 +3,27 @@
     "item": "terraworld:plumed_belt"
   },
   "pattern": [
-    "ef ",
+    "af ",
     "f f",
-    "mfa"
+    "mfe"
   ],
   "type": "forge:ore_shaped",
   "key": {
     "f": {
-      "item": "minecraft:feather"
+      "type": "forge:ore_dict",
+      "ore": "feather"
     },
     "e": {
-      "item": "#RUNEEARTHB"
+      "type": "forge:ore_dict",
+      "ore": "runeEarthB"
     },
     "m": {
-      "item": "#INGOTMANASTEEL"
+      "type": "forge:ore_dict",
+      "ore": "ingotManasteel"
     },
     "a": {
-      "item": "#RUNEAIRB"
+      "type": "forge:ore_dict",
+      "ore": "runeAirB"
     }
   }
 }

@@ -22,7 +22,7 @@ public class ItemPlumedBelt extends Item implements IBauble {
 	public ItemPlumedBelt() {
 		String name = "plumed_belt";
 		setRegistryName(name);
-        setUnlocalizedName(Terraworld.MODID + "." + name);
+		setUnlocalizedName(Terraworld.MODID + "." + name);
 		setCreativeTab(CreativeTabs.MATERIALS);
 	}
 
