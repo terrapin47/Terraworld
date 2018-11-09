@@ -44,6 +44,9 @@ item.terraworld.orichalcum_nugget.name=Orichalcum Nugget
 tile.terraworld.orichalcum_block.name=Orichalcum Block
 tile.terraworld.orichalcum_ore.name=Orichalcum Ore
 
+item.terraworld.blood_bronze_ingot.name=Blood Bronze Ingot
+tile.terraworld.blood_bronze_block.name=Blood Bronze Block
+
 item.terraworld.plumed_belt.name=Plumed Belt
 
 item.terraworld.stamp_armor_plate.name=Armor Plates Stamp

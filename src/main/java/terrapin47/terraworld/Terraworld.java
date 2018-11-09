@@ -1,5 +1,6 @@
 package terrapin47.terraworld;
 
+import net.minecraftforge.fluids.FluidRegistry;
 import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.SidedProxy;
@@ -15,7 +16,7 @@ public class Terraworld {
 
     public static final String MODID = "terraworld";
     public static final String MODNAME = "Terraworld";
-    public static final String MODVERSION= "1.0.7";
+    public static final String MODVERSION= "1.0.8";
 
     @SidedProxy(clientSide = "terrapin47.terraworld.proxy.ClientProxy", serverSide = "terrapin47.terraworld.proxy.ServerProxy")
     public static CommonProxy proxy;
@@ -24,6 +25,10 @@ public class Terraworld {
     public static Terraworld instance;
 
     public static Logger logger;
+
+    static {
+        FluidRegistry.enableUniversalBucket();
+    }
 
     @Mod.EventHandler
     public void preInit(FMLPreInitializationEvent event) {
