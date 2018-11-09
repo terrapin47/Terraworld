@@ -2,7 +2,6 @@ package terrapin47.terraworld.init;
 
 import net.minecraftforge.fluids.FluidRegistry;
 import net.minecraftforge.fluids.FluidStack;
-import net.minecraftforge.fml.common.registry.GameRegistry;
 import slimeknights.tconstruct.common.TinkerPulse;
 import slimeknights.tconstruct.library.TinkerRegistry;
 import terrapin47.terraworld.block.fluid.FluidMoltenBloodBronze;
@@ -18,13 +17,13 @@ public class ModFluids extends TinkerPulse {
     }
 
     //Register smeltery recipes
-    private static void registerAlloys() {
+    public static void registerAlloys() {
         if(!isSmelteryLoaded())
             return;
 
-        TinkerRegistry.registerAlloy(new FluidStack(MOLTEN_BLOOD_BRONZE, 288),
-                new FluidStack(FluidRegistry.getFluid("bronze"), 144),
-                new FluidStack(BlockLifeEssence.getLifeEssence(), 1000));
+        TinkerRegistry.registerAlloy(new FluidStack(MOLTEN_BLOOD_BRONZE, 2),
+                new FluidStack(FluidRegistry.getFluid("bronze"), 1),
+                new FluidStack(BlockLifeEssence.getLifeEssence(), 6));
 
     }
 

@@ -8,7 +8,6 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import terrapin47.terraworld.block.BlockBase;
-import terrapin47.terraworld.block.fluid.FluidMoltenBlock;
 
 public class ModBlocks {
 
@@ -51,9 +50,6 @@ public class ModBlocks {
     @GameRegistry.ObjectHolder("terraworld:blood_bronze_block")
     public static final BlockBase BLOOD_BRONZE_BLOCK = new BlockBase("blood_bronze_block", "blockBloodBronze", Material.ROCK, 5.f, "pickaxe", 2);
 
-    @GameRegistry.ObjectHolder("terraworld:blood_bronze_fluid_block")
-    public static final FluidMoltenBlock BLOOD_BRONZE_FLUID_BLOCK = new FluidMoltenBlock("blood_bronze_fluid_block", ModFluids.MOLTEN_BLOOD_BRONZE);
-
     @SideOnly(Side.CLIENT)
     public static void initModels() {
         ADAMANTINE_ORE.initModel();
@@ -69,7 +65,6 @@ public class ModBlocks {
         ORICHALCUM_BLOCK.initModel();
         ORICHALCUM_ORE.initModel();
         BLOOD_BRONZE_BLOCK.initModel();
-        BLOOD_BRONZE_FLUID_BLOCK.initModel();
     }
 
     public static void registerBlocks(RegistryEvent.Register<Block> event) {
@@ -86,7 +81,6 @@ public class ModBlocks {
         ORICHALCUM_ORE.register(event);
         ORICHALCUM_BLOCK.register(event);
         BLOOD_BRONZE_BLOCK.register(event);
-        BLOOD_BRONZE_FLUID_BLOCK.register(event);
     }
 
     public static void registerItems(RegistryEvent.Register<Item> event) {
@@ -103,6 +97,5 @@ public class ModBlocks {
         ORICHALCUM_ORE.registerAsItem(event);
         ORICHALCUM_BLOCK.registerAsItem(event);
         BLOOD_BRONZE_BLOCK.registerAsItem(event);
-        BLOOD_BRONZE_FLUID_BLOCK.registerAsItem(event);
     }
 }

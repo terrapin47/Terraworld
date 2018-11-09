@@ -3,7 +3,6 @@ package terrapin47.terraworld.block.fluid;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fluids.Fluid;
 import slimeknights.tconstruct.TConstruct;
-import terrapin47.terraworld.init.ModBlocks;
 
 import java.awt.Color;
 
