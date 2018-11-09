@@ -12,11 +12,13 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import terrapin47.terraworld.init.ModBlocks;
 import terrapin47.terraworld.init.ModFluids;
 import terrapin47.terraworld.init.ModItems;
+import terrapin47.terraworld.init.ModTinkerMaterials;
 
 @Mod.EventBusSubscriber
 public class CommonProxy {
     public void preInit(FMLPreInitializationEvent event) {
         ModFluids.registerFluids();
+        ModTinkerMaterials.init();
     }
 
     public void init(FMLInitializationEvent event) {

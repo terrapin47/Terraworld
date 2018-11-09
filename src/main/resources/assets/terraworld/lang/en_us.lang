@@ -50,6 +50,10 @@ tile.terraworld.blood_bronze_block.name=Blood Bronze Block
 tile.terraworld.blood_bronze_fluid_block.name=Molten Blood Bronze
 fluid.molten_blood_bronze=Molten Blood Bronze
 
+material.bloodbronze.name=Blood Bronze
+modifier.soulstealer.name=Soul Stealer
+modifier.soulstealer.desc=Steals the souls of enemies and crystallizes it into demon will
+
 item.terraworld.plumed_belt.name=Plumed Belt
 
 item.terraworld.stamp_armor_plate.name=Armor Plates Stamp
