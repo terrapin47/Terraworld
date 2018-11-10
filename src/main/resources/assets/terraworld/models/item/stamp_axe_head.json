@@ -1,6 +1,0 @@
-{
-  "parent": "item/generated",
-  "textures": {
-    "layer0": "terraworld:items/stamps/stamp_axe_head"
-  }
-}
