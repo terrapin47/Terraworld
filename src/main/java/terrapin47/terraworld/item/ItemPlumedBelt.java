@@ -9,14 +9,19 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.client.util.ITooltipFlag;
+import net.minecraft.util.DamageSource;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.event.RegistryEvent;
+import net.minecraftforge.event.entity.living.LivingAttackEvent;
+import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraft.world.World;
 import terrapin47.terraworld.Terraworld;
 import java.util.List;
 
+@Mod.EventBusSubscriber(modid = Terraworld.MODID)
 public class ItemPlumedBelt extends Item implements IBauble {
 
 	public ItemPlumedBelt() {
@@ -36,6 +41,16 @@ public class ItemPlumedBelt extends Item implements IBauble {
 		if (entity instanceof EntityPlayer) {
 			EntityPlayer player = (EntityPlayer)entity;
 			player.fallDistance = 0f;
+		}
+	}
+
+	@SubscribeEvent
+	public static void onPlayerAttacked(LivingAttackEvent event) {
+		if(event.getEntityLiving() instanceof EntityPlayer) {
+			EntityPlayer player = (EntityPlayer) event.getEntityLiving();
+			if (event.getSource().damageType.equals(DamageSource.FLY_INTO_WALL.damageType)) {
+				event.setCanceled(true);
+			}
 		}
 	}
 
