@@ -6,6 +6,7 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import terrapin47.terraworld.item.ItemBase;
+import terrapin47.terraworld.item.ItemBloodyThornRing;
 
 public class ModItems {
 
@@ -90,6 +91,9 @@ public class ModItems {
     @GameRegistry.ObjectHolder("terraworld:blood_bronze_ingot")
     public static final ItemBase BLOOD_BRONZE_INGOT = new ItemBase("blood_bronze_ingot", "ingotBloodBronze");
 
+    @GameRegistry.ObjectHolder("terraworld:bloody_thorn_ring")
+    public static final ItemBloodyThornRing BLOODY_THORN_RING = new ItemBloodyThornRing();
+
     @SideOnly(Side.CLIENT)
     public static void initModels() {
         COPPER_DUST.initModel();
@@ -119,6 +123,7 @@ public class ModItems {
         ORICHALCUM_DUST.initModel();
         ORICHALCUM_NUGGET.initModel();
         BLOOD_BRONZE_INGOT.initModel();
+        BLOODY_THORN_RING.initModel();
     }
 
     public static void registerItems(RegistryEvent.Register<Item> event) {
@@ -149,6 +154,7 @@ public class ModItems {
         ORICHALCUM_DUST.register(event);
         ORICHALCUM_NUGGET.register(event);
         BLOOD_BRONZE_INGOT.register(event);
+        BLOODY_THORN_RING.register(event);
     }
 
 }

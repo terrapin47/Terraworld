@@ -1,0 +1,19 @@
+{
+  "result": {
+    "item": "terraworld:bloody_thorn_ring"
+  },
+  "pattern": [
+    "rbr",
+    "b b",
+    "rbr"
+  ],
+  "type": "forge:ore_shaped",
+  "key": {
+    "r": {
+      "item": "minecraft:double_plant:4"
+    },
+    "b": {
+      "item": "terraworld:blood_bronze_ingot"
+    }
+  }
+}

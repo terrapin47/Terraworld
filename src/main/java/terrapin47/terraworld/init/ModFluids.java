@@ -21,9 +21,9 @@ public class ModFluids extends TinkerPulse {
         if(!isSmelteryLoaded())
             return;
 
-        TinkerRegistry.registerAlloy(new FluidStack(MOLTEN_BLOOD_BRONZE, 2),
-                new FluidStack(FluidRegistry.getFluid("bronze"), 1),
-                new FluidStack(BlockLifeEssence.getLifeEssence(), 6));
+        TinkerRegistry.registerAlloy(new FluidStack(MOLTEN_BLOOD_BRONZE, 36),
+                new FluidStack(FluidRegistry.getFluid("bronze"), 18),
+                new FluidStack(BlockLifeEssence.getLifeEssence(), 125));
 
     }
 
