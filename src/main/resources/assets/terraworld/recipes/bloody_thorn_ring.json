@@ -1,0 +1,21 @@
+{
+  "result": {
+    "item": "terraworld:bloody_thorn_ring"
+  },
+  "pattern": [
+    "rbr",
+    "b b",
+    "rbr"
+  ],
+  "type": "forge:ore_shaped",
+  "key": {
+    "r": {
+      "type": "forge:ore_dict",
+      "ore": "roseBush"
+    },
+    "b": {
+      "type": "forge:ore_dict",
+      "ore": "ingotBloodBronze"
+    }
+  }
+}

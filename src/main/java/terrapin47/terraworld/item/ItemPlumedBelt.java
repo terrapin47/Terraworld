@@ -24,6 +24,7 @@ public class ItemPlumedBelt extends Item implements IBauble {
 		setRegistryName(name);
 		setUnlocalizedName(Terraworld.MODID + "." + name);
 		setCreativeTab(CreativeTabs.MATERIALS);
+		setMaxStackSize(1);
 	}
 
 	@Override
@@ -46,7 +47,6 @@ public class ItemPlumedBelt extends Item implements IBauble {
 
 	public void register(RegistryEvent.Register<Item> event) {
 		event.getRegistry().register(this);
-
 	}
 
 	@SideOnly(Side.CLIENT)

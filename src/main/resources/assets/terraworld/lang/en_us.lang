@@ -52,9 +52,12 @@ fluid.molten_blood_bronze=Molten Blood Bronze
 
 material.bloodbronze.name=Blood Bronze
 modifier.soulstealer.name=Soul Stealer
-modifier.soulstealer.desc=Steals the souls of enemies and crystallizes it into demon will
+modifier.soulstealer.desc=§oRidiculously wicked!§r\nSteals the souls of enemies and crystallizes it into demon will.
+modifier.bloodstained_armor.name=Bloodstained
+modifier.bloodstained_armor.desc=§oGory!§r\nCover yourself in the blood of your enemies to power your soul network.
 
 item.terraworld.plumed_belt.name=Plumed Belt
+item.terraworld.bloody_thorn_ring.name=Bloody Thorn Ring
 
 item.terraworld.stamp_armor_plate.name=Armor Plates Stamp
 item.terraworld.stamp_armor_trim.name=Armor Trim Stamp

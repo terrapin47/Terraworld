@@ -18,7 +18,7 @@ import terrapin47.terraworld.init.ModTinkerMaterials;
 public class CommonProxy {
     public void preInit(FMLPreInitializationEvent event) {
         ModFluids.registerFluids();
-        ModTinkerMaterials.init();
+        ModTinkerMaterials.preInit();
     }
 
     public void init(FMLInitializationEvent event) {
@@ -37,6 +37,7 @@ public class CommonProxy {
     public static void registerItems(RegistryEvent.Register<Item> event) {
         ModItems.registerItems(event);
         ModBlocks.registerItems(event);
+        ModTinkerMaterials.init();
     }
 }
 
