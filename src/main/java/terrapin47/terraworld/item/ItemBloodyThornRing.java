@@ -77,14 +77,12 @@ public class ItemBloodyThornRing extends Item implements IBauble {
         EntityLivingBase entity = event.getEntityLiving();
         DamageSource damageSource = event.getSource();
         float damage = event.getAmount();
-        if(event.getEntityLiving() instanceof EntityPlayer && damage > 0) {
-            damage += 2.0f;
+        if(event.getEntityLiving() instanceof EntityPlayer) { //Make player take one heart of damage when taking damage.
+            entity.setHealth(entity.getHealth()-2.0f);
             Entity damageEntity = damageSource.getTrueSource();
-            if (damageEntity.isCreatureType(EnumCreatureType.MONSTER, false)) { //Reflect damage if it is a monster
+            if(damageSource.getImmediateSource() != null && damageSource.getImmediateSource() instanceof EntityLivingBase) { //Reflect two hearts of damage if it is a living entity
                 EntityLivingBase livingEntity = (EntityLivingBase) damageEntity;
-                float currentHealth = livingEntity.getHealth();
-                float newHealth = currentHealth - 4.0f < 0 ? 0 : currentHealth - 4.0f; //Don't set health below 0.
-                entity.setHealth(newHealth);
+                livingEntity.setHealth(livingEntity.getHealth()-4.0f);
             }
         }
         event.setAmount(damage);

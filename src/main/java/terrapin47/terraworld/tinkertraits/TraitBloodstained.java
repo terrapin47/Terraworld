@@ -27,7 +27,7 @@ public class TraitBloodstained extends AbstractArmorTrait  {
 
     public float onDamaged(ItemStack armor, EntityPlayer player, DamageSource source, float damage, float newDamage, LivingDamageEvent evt) {
         //Add life essence to the player's soul network when damaged by an enemy.
-        if(source.getTrueSource().isCreatureType(EnumCreatureType.MONSTER, false)) {
+        if(source.getImmediateSource() != null && source.getImmediateSource() instanceof EntityLivingBase && source.getTrueSource().isCreatureType(EnumCreatureType.MONSTER, false)) {
             SoulNetwork network = NetworkHelper.getSoulNetwork(player);
             int newEssence = network.getCurrentEssence()+(int)(10*damage); //New amount of essence, may go past cap.
             int maxEssence = NetworkHelper.getMaximumForTier(network.getOrbTier());; //Maximum amount of essence you can get depending on blood orb.

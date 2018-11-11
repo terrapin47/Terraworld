@@ -16,7 +16,7 @@ public class TraitSoulStealer extends AbstractTrait {
     public static final TraitSoulStealer soulstealer = new TraitSoulStealer();
 
     public TraitSoulStealer() {
-        super("soul stealer", 0xF26263);
+        super("soulstealer", 0xF26263);
     }
 
     public static TraitSoulStealer Get()

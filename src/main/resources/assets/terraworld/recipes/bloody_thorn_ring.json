@@ -10,12 +10,10 @@
   "type": "forge:ore_shaped",
   "key": {
     "r": {
-      "type": "forge:ore_dict",
-      "ore": "roseBush"
+      "item": "minecraft:double_plant:4"
     },
     "b": {
-      "type": "forge:ore_dict",
-      "ore": "ingotBloodBronze"
+      "item": "terraworld:blood_bronze_ingot"
     }
   }
 }
