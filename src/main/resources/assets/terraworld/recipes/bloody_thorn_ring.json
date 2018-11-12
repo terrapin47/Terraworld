@@ -10,10 +10,12 @@
   "type": "forge:ore_shaped",
   "key": {
     "r": {
-      "item": "minecraft:double_plant:4"
+      "item": "minecraft:double_plant",
+      "data": 4
     },
     "b": {
-      "item": "terraworld:blood_bronze_ingot"
+      "type": "forge:ore_dict",
+      "ore": "ingotBloodBronze"
     }
   }
 }

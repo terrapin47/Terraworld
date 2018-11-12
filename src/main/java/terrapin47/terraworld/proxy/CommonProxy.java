@@ -1,7 +1,6 @@
 package terrapin47.terraworld.proxy;
 
 import net.minecraft.block.Block;
-import net.minecraft.item.ItemBlock;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraft.item.Item;
@@ -16,6 +15,7 @@ import terrapin47.terraworld.init.ModTinkerMaterials;
 
 @Mod.EventBusSubscriber
 public class CommonProxy {
+
     public void preInit(FMLPreInitializationEvent event) {
         ModFluids.registerFluids();
         ModTinkerMaterials.preInit();

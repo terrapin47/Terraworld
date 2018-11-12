@@ -1,18 +1,15 @@
 package terrapin47.terraworld.item;
 
-import baubles.api.BaublesApi;
 import baubles.api.BaubleType;
 import baubles.api.IBauble;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.ai.attributes.IAttributeInstance;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.client.util.ITooltipFlag;
@@ -25,7 +22,6 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraft.world.World;
-import net.minecraftforge.items.IItemHandler;
 import terrapin47.terraworld.Terraworld;
 import java.util.List;
 import java.util.UUID;
@@ -36,7 +32,7 @@ public class ItemBloodyThornRing extends Item implements IBauble {
     protected static final UUID HEALTH_MODIFIER_1 = UUID.fromString("2b1b168e-e53b-11e8-9f32-f2801f1b9fd1"); //Two separate modifiers to prevent crash
     protected static final AttributeModifier HEALTH_MOD_1 = new AttributeModifier(HEALTH_MODIFIER_1, "BLOODYTHORNRING_HEALTH_MOD_1", 4.0D, 0);
     protected static final UUID HEALTH_MODIFIER_2 = UUID.fromString("4dca1dba-5835-4216-8f56-0f6d9af37b36");
-    protected static final AttributeModifier HEALTH_MOD_2 = new AttributeModifier(HEALTH_MODIFIER_2, "BLOODYTHORNRING_HEALTH_MOD", 4.0D, 0);
+    protected static final AttributeModifier HEALTH_MOD_2 = new AttributeModifier(HEALTH_MODIFIER_2, "BLOODYTHORNRING_HEALTH_MOD_2", 4.0D, 0);
 
     public ItemBloodyThornRing() {
         String name = "bloody_thorn_ring";
@@ -65,6 +61,7 @@ public class ItemBloodyThornRing extends Item implements IBauble {
         IAttributeInstance maxHealth = player.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH);
         if(player.getHealth() > player.getMaxHealth() - 4.0f)
             player.setHealth(player.getMaxHealth() - 4.0f);
+        else player.setHealth(1.0f);
         if(maxHealth.hasModifier(HEALTH_MOD_2))
             maxHealth.removeModifier(HEALTH_MODIFIER_2);
         else if(maxHealth.hasModifier(HEALTH_MOD_1))
@@ -74,18 +71,18 @@ public class ItemBloodyThornRing extends Item implements IBauble {
     @SubscribeEvent
     public static void onPlayerAttacked(LivingHurtEvent event)
     {
-        EntityLivingBase entity = event.getEntityLiving();
-        DamageSource damageSource = event.getSource();
-        float damage = event.getAmount();
-        if(event.getEntityLiving() instanceof EntityPlayer) { //Make player take one heart of damage when taking damage.
-            entity.setHealth(entity.getHealth()-2.0f);
-            Entity damageEntity = damageSource.getTrueSource();
-            if(damageSource.getImmediateSource() != null && damageSource.getImmediateSource() instanceof EntityLivingBase) { //Reflect two hearts of damage if it is a living entity
-                EntityLivingBase livingEntity = (EntityLivingBase) damageEntity;
-                livingEntity.setHealth(livingEntity.getHealth()-4.0f);
+        if(event.getEntityLiving() instanceof EntityPlayer) {
+            DamageSource damageSource = event.getSource();
+            if (damageSource.getImmediateSource() != null && damageSource.getImmediateSource() instanceof EntityLivingBase) {
+                EntityLivingBase player = event.getEntityLiving();
+                //Make player take one heart of damage when taking damage.
+                player.setHealth(player.getHealth() - 2.0f);
+                Entity attackingEntity = damageSource.getTrueSource();
+                //Reflect two hearts of damage if it is a living entity
+                EntityLivingBase livingEntity = (EntityLivingBase) attackingEntity;
+                livingEntity.attackEntityFrom(DamageSource.causeIndirectDamage(player, livingEntity), 4.0f);
             }
         }
-        event.setAmount(damage);
     }
 
     @SideOnly(Side.CLIENT)

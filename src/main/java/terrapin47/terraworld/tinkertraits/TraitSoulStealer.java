@@ -1,16 +1,16 @@
 package terrapin47.terraworld.tinkertraits;
 
 import WayofTime.bloodmagic.core.RegistrarBloodMagicItems;
-import WayofTime.bloodmagic.util.helper.NBTHelper;
-import net.minecraft.entity.*;
+import WayofTime.bloodmagic.soul.EnumDemonWillType;
+import WayofTime.bloodmagic.soul.IDemonWill;
+import WayofTime.bloodmagic.soul.PlayerDemonWillHandler;
 import net.minecraft.enchantment.EnchantmentHelper;
+import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.entity.monster.EntitySlime;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.*;
-import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.world.chunk.Chunk;
-import slimeknights.tconstruct.library.traits.*;
-import WayofTime.bloodmagic.soul.*;
+import net.minecraft.item.ItemStack;
+import slimeknights.tconstruct.library.traits.AbstractTrait;
 
 public class TraitSoulStealer extends AbstractTrait {
     public static final TraitSoulStealer soulstealer = new TraitSoulStealer();
@@ -26,9 +26,8 @@ public class TraitSoulStealer extends AbstractTrait {
 
     @Override
     public void afterHit(ItemStack tool, EntityLivingBase player, EntityLivingBase target, float damageDealt, boolean wasCritical, boolean wasHit) {
-        //Get demon will if target died and is not friendly
-        if(target.getHealth() <= 0 && target.isCreatureType(EnumCreatureType.MONSTER, false)) {
-            player.setHealth(1.0f);
+        //Get demon will if target died and is an enemy or player
+        if(target.getHealth() <= 0 && (target instanceof EntityPlayer || target.isCreatureType(EnumCreatureType.MONSTER, false))) {
             IDemonWill soul = ((IDemonWill) RegistrarBloodMagicItems.MONSTER_SOUL);
             int looting = EnchantmentHelper.getLootingModifier(player);
 

@@ -3,14 +3,11 @@ package terrapin47.terraworld.tinkertraits;
 import WayofTime.bloodmagic.core.data.SoulNetwork;
 import WayofTime.bloodmagic.core.data.SoulTicket;
 import WayofTime.bloodmagic.util.helper.NetworkHelper;
-import c4.conarm.common.armor.utils.ArmorHelper;
 import c4.conarm.lib.traits.AbstractArmorTrait;
 import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.DamageSource;
-import net.minecraft.util.text.TextFormatting;
 import net.minecraftforge.event.entity.living.LivingDamageEvent;
 
 public class TraitBloodstained extends AbstractArmorTrait  {
@@ -25,17 +22,22 @@ public class TraitBloodstained extends AbstractArmorTrait  {
         return bloodstained;
     }
 
-    public float onDamaged(ItemStack armor, EntityPlayer player, DamageSource source, float damage, float newDamage, LivingDamageEvent evt) {
+    public float onDamaged(ItemStack armor, EntityPlayer player, DamageSource source, float damage, float newDamage, LivingDamageEvent event) {
         //Add life essence to the player's soul network when damaged by an enemy.
-        if(source.getImmediateSource() != null && source.getImmediateSource() instanceof EntityLivingBase && source.getTrueSource().isCreatureType(EnumCreatureType.MONSTER, false)) {
+        if(source.getTrueSource() != null && source.getTrueSource() instanceof EntityLivingBase) {
             SoulNetwork network = NetworkHelper.getSoulNetwork(player);
-            int newEssence = network.getCurrentEssence()+(int)(10*damage); //New amount of essence, may go past cap.
-            int maxEssence = NetworkHelper.getMaximumForTier(network.getOrbTier());; //Maximum amount of essence you can get depending on blood orb.
-            if(maxEssence == 0) return super.onDamaged(armor, player, source, damage, newDamage, evt); //Can't hold any essence, return out of function-
-            else if(newEssence > maxEssence) network.setCurrentEssence(maxEssence); //Make sure essence doesn't overflow past max.
-            else network.setCurrentEssence(newEssence);
+
+            int essenceToAdd = 10 * Math.round(damage);
+            int essenceMax = NetworkHelper.getMaximumForTier(network.getOrbTier()); //Maximum amount of essence you can get depending on blood orb.
+
+            if(essenceMax == 0) {
+                return super.onDamaged(armor, player, source, damage, newDamage, event); //Can't hold any essence, return out of function.
+            }
+
+            network.add(new SoulTicket(essenceToAdd), essenceMax);
+
         }
-        return super.onDamaged(armor, player, source, damage, newDamage, evt);
+        return super.onDamaged(armor, player, source, damage, newDamage, event);
     }
 
 }
