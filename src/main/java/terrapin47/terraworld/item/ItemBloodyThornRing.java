@@ -25,7 +25,6 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraft.world.World;
 import net.minecraftforge.items.IItemHandler;
 import terrapin47.terraworld.Terraworld;
-import terrapin47.terraworld.init.ModItems;
 
 import java.util.List;
 import java.util.UUID;
