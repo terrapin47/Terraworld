@@ -1,6 +1,7 @@
 package terrapin47.terraworld.item;
 
 import baubles.api.BaubleType;
+import baubles.api.BaublesApi;
 import baubles.api.IBauble;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.creativetab.CreativeTabs;
@@ -22,7 +23,10 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraft.world.World;
+import net.minecraftforge.items.IItemHandler;
 import terrapin47.terraworld.Terraworld;
+import terrapin47.terraworld.init.ModItems;
+
 import java.util.List;
 import java.util.UUID;
 
@@ -49,40 +53,59 @@ public class ItemBloodyThornRing extends Item implements IBauble {
 
     @Override
     public void onEquipped(ItemStack itemstack, EntityLivingBase player) {
-            IAttributeInstance maxHealth = player.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH);
-            if(!maxHealth.hasModifier(HEALTH_MOD_1)) //Separate modifiers for different rings
-                maxHealth.applyModifier(HEALTH_MOD_1);
-            else if(!maxHealth.hasModifier(HEALTH_MOD_2))
-                maxHealth.applyModifier(HEALTH_MOD_2);
+        IAttributeInstance maxHealth = player.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH);
+        if (!maxHealth.hasModifier(HEALTH_MOD_1)) { //Separate modifiers for different rings
+            maxHealth.applyModifier(HEALTH_MOD_1);
+        } else if (!maxHealth.hasModifier(HEALTH_MOD_2)) {
+            maxHealth.applyModifier(HEALTH_MOD_2);
+        }
     }
 
     @Override
     public void onUnequipped(ItemStack itemstack, EntityLivingBase player) {
         IAttributeInstance maxHealth = player.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH);
-        if(player.getHealth() > player.getMaxHealth() - 4.0f)
-            player.setHealth(player.getMaxHealth() - 4.0f);
-        else player.setHealth(1.0f);
-        if(maxHealth.hasModifier(HEALTH_MOD_2))
+
+        if ((player.getHealth() - 4.0f) > 1.0f) {
+            player.setHealth(player.getHealth() - 4.0f);
+        } else {
+            player.setHealth(1.0f);
+        }
+        player.performHurtAnimation();
+
+        if (maxHealth.hasModifier(HEALTH_MOD_2)) {
             maxHealth.removeModifier(HEALTH_MODIFIER_2);
-        else if(maxHealth.hasModifier(HEALTH_MOD_1))
+        } else if(maxHealth.hasModifier(HEALTH_MOD_1)) {
             maxHealth.removeModifier(HEALTH_MODIFIER_1);
+        }
     }
 
     @SubscribeEvent
     public static void onPlayerAttacked(LivingHurtEvent event)
     {
         if(event.getEntityLiving() instanceof EntityPlayer) {
-            DamageSource damageSource = event.getSource();
-            if (damageSource.getImmediateSource() != null && damageSource.getImmediateSource() instanceof EntityLivingBase) {
-                EntityLivingBase player = event.getEntityLiving();
-                //Make player take one heart of damage when taking damage.
-                player.setHealth(player.getHealth() - 2.0f);
-                Entity attackingEntity = damageSource.getTrueSource();
-                //Reflect two hearts of damage if it is a living entity
-                EntityLivingBase livingEntity = (EntityLivingBase) attackingEntity;
-                livingEntity.attackEntityFrom(DamageSource.causeIndirectDamage(player, livingEntity), 4.0f);
+            EntityPlayer player = (EntityPlayer) event.getEntityLiving();
+            if (isWearingThornRing(player)) {
+                DamageSource damageSource = event.getSource();
+                if (damageSource.getImmediateSource() != null && damageSource.getImmediateSource() instanceof EntityLivingBase) {
+                    //Make player take one extra heart of damage when taking damage.
+                    player.setHealth(player.getHealth() - 2.0f);
+                    Entity attackingEntity = damageSource.getTrueSource();
+                    //Reflect two hearts of damage if it is a living entity
+                    EntityLivingBase livingEntity = (EntityLivingBase) attackingEntity;
+                    livingEntity.attackEntityFrom(DamageSource.causeIndirectDamage(player, livingEntity), 4.0f);
+                }
             }
         }
+    }
+
+    public static boolean isWearingThornRing(EntityPlayer player) {
+        IItemHandler baubles = BaublesApi.getBaublesHandler(player);
+        ItemStack slot1 = baubles.getStackInSlot(1);
+        ItemStack slot2 = baubles.getStackInSlot(2);
+        boolean inSlot1 = !slot1.isEmpty() && slot1.getItem() instanceof ItemBloodyThornRing;
+        boolean inSlot2 = !slot2.isEmpty() && slot2.getItem() instanceof ItemBloodyThornRing;
+        return inSlot1 || inSlot2;
+
     }
 
     @SideOnly(Side.CLIENT)
