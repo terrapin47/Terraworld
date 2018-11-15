@@ -9,6 +9,7 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraftforge.oredict.OreDictionary;
 import terrapin47.terraworld.Terraworld;
+import terrapin47.terraworld.util.MiscUtils;
 
 public class ItemBase extends Item {
 
@@ -27,14 +28,14 @@ public class ItemBase extends Item {
 
     @SideOnly(Side.CLIENT)
     public void initModel() {
-        ModelLoader.setCustomModelResourceLocation(this, 0, new ModelResourceLocation(getRegistryName(), "inventory"));
+        if (MiscUtils.getConfigForOredict(this.oredict)) {
+            ModelLoader.setCustomModelResourceLocation(this, 0, new ModelResourceLocation(getRegistryName(), "inventory"));
+        }
     }
 
     public void register(RegistryEvent.Register<Item> event) {
-        event.getRegistry().register(this);
-
-        // Probably bad practice?
-        if (!(this.oredict == null)) {
+        if (MiscUtils.getConfigForOredict(this.oredict)) {
+            event.getRegistry().register(this);
             OreDictionary.registerOre(this.oredict, this);
         }
     }

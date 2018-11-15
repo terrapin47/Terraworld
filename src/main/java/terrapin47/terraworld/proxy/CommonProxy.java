@@ -1,7 +1,7 @@
 package terrapin47.terraworld.proxy;
 
 import net.minecraft.block.Block;
-import net.minecraft.item.ItemBlock;
+import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraft.item.Item;
@@ -14,6 +14,9 @@ import terrapin47.terraworld.init.ModItems;
 
 @Mod.EventBusSubscriber
 public class CommonProxy {
+
+    public static Configuration config;
+
     public void preInit(FMLPreInitializationEvent event) {
     }
 

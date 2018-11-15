@@ -12,6 +12,7 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraftforge.oredict.OreDictionary;
 import terrapin47.terraworld.Terraworld;
+import terrapin47.terraworld.util.MiscUtils;
 
 public class BlockBase extends Block {
 
@@ -29,16 +30,22 @@ public class BlockBase extends Block {
 
     @SideOnly(Side.CLIENT)
     public void initModel() {
-        ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(this), 0, new ModelResourceLocation(getRegistryName(), "inventory"));
+        if (MiscUtils.getConfigForOredict(this.oredict)) {
+            ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(this), 0, new ModelResourceLocation(getRegistryName(), "inventory"));
+        }
     }
 
     public void register(RegistryEvent.Register<Block> event) {
-        event.getRegistry().register(this);
+        if (MiscUtils.getConfigForOredict(this.oredict)) {
+            event.getRegistry().register(this);
+        }
     }
 
     public void registerAsItem(RegistryEvent.Register<Item> event) {
-        event.getRegistry().register(new ItemBlock(this).setRegistryName(this.getRegistryName()));
-        OreDictionary.registerOre(this.oredict, this);
+        if (MiscUtils.getConfigForOredict(this.oredict)) {
+            event.getRegistry().register(new ItemBlock(this).setRegistryName(this.getRegistryName()));
+            OreDictionary.registerOre(this.oredict, this);
+        }
     }
 
 }
