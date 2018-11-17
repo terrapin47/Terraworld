@@ -7,6 +7,7 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import terrapin47.terraworld.item.ItemBase;
 import terrapin47.terraworld.item.ItemBloodyThornRing;
+import terrapin47.terraworld.item.ItemTPScroll;
 import terrapin47.terraworld.item.ItemPlumedBelt;
 
 public class ModItems {
@@ -206,6 +207,9 @@ public class ModItems {
     @GameRegistry.ObjectHolder("terraworld:bloody_thorn_ring")
     public static final ItemBloodyThornRing BLOODY_THORN_RING = new ItemBloodyThornRing();
 
+    @GameRegistry.ObjectHolder("terraworld:tp_scroll")
+    public static final ItemTPScroll TP_SCROLL = new ItemTPScroll();
+
     @SideOnly(Side.CLIENT)
     public static void initModels() {
         COPPER_DUST.initModel();
@@ -273,6 +277,7 @@ public class ModItems {
         STAMP_WIDE_GUARD.initModel();
         PLUMED_BELT.initModel();
         BLOODY_THORN_RING.initModel();
+        TP_SCROLL.initModel();
     }
 
     public static void registerItems(RegistryEvent.Register<Item> event) {
@@ -341,6 +346,7 @@ public class ModItems {
         STAMP_WIDE_GUARD.register(event);
         PLUMED_BELT.register(event);
         BLOODY_THORN_RING.register(event);
+        TP_SCROLL.register(event);
     }
 
 }

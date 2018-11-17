@@ -28,10 +28,8 @@ public class TraitSoulStealer extends AbstractTrait {
     public void afterHit(ItemStack tool, EntityLivingBase player, EntityLivingBase target, float damageDealt, boolean wasCritical, boolean wasHit) {
         //Get demon will if target died and is not friendly
         if(target.getHealth() <= 0 && target.isCreatureType(EnumCreatureType.MONSTER, false)) {
-            player.setHealth(1.0f);
             IDemonWill soul = ((IDemonWill) RegistrarBloodMagicItems.MONSTER_SOUL);
             int looting = EnchantmentHelper.getLootingModifier(player);
-
             double willModifier = target instanceof EntitySlime ? 0.67 : 1;
             for (int i = 0; i <= looting; i++) {
                 if (i == 0 || target.getEntityWorld().rand.nextDouble() < 0.4) {
